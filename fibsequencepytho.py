@@ -1,3 +1,8 @@
+def test(size):
+    temp = 0
+    for i in range(size):
+        temp = temp + i
+        print(temp,"test")
 def square(size):
     i=0
     for i in range(size):
@@ -18,10 +23,9 @@ def fibseq(bounds):
         i=i+o
         print(temp, "fibseq")
 def main():
-    number=input("Enter a number for the Range")
-    number=int(number)
-    square(number)
+    square(13)
     fibseq(8)
+    test(12)
 if __name__=='__main__':
     main()
 

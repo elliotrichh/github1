@@ -18,14 +18,19 @@ def triangle_numbers():
     print("the sum of all triangle numbers below 100k is", temp)
 
 def evenfib():
-    a=1
-    b=2
-    temp=0
-    while b<=1:
-        if b%2==0:
-            temp+=b
-        a=a+1
-    print("the sum of all even fibonacci numbers below 100k is", temp)
+    n1=1
+    n2=0
+    n=1
+    tempn1=0
+    tempsum=0
+    while n<=100000:
+        if n%2==0:
+            tempsum+=n
+        tempn1=n
+        n=n1+n2
+        n2=n1
+        n1=n
+    print("the sum of all even fibonacci numbers below 100k is", tempsum)
 
 
 

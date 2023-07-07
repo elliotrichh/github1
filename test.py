@@ -10,30 +10,30 @@ class autoclickerGUI(tk.Tk):
 
         self.title("elliott's AutoClicker")
         self.geometry("500x300")
-
+#
         self.clicking_lock = threading.Lock()
         self.clicking = False
         self.click_button_text = tk.StringVar()
-        self.click_button_text.set("click?")
-
+        self.click_button_text.set("click here")
+#
         self.click_button = tk.Button(self, textvariable=self.click_button_text, command=self.toggle_clicking)
         self.click_button.pack(pady=20)
 
-        self.set_key_button = tk.Button(self, text="Set key", command=self.set_key)
+        self.set_key_button = tk.Button(self, text="trigger", command=self.set_key)
         self.set_key_button.pack(pady=10)
-
+#
         self.key_label_text = tk.StringVar()
-        self.key_label_text.set("no key set!")
+        self.key_label_text.set("set a key")
         self.key_label = tk.Label(self, textvariable=self.key_label_text)
         self.key_label.pack(pady=10)
 
         self.click_count = 0
         self.click_count_label_text = tk.StringVar()
-        self.click_count_label_text.set("clikc count: 0")
+        self.click_count_label_text.set("# clicks")
         self.click_count_label = tk.Label(self, textvariable=self.click_count_label_text)
         self.click_count_label.pack(pady=10)
 
-        self.frequency_label = tk.Label(self, text="frequency (cps):")
+        self.frequency_label = tk.Label(self, text="click/s")
         self.frequency_label.pack(pady=5)
 
         self.frequency_entry = tk.Entry(self, state=tk.DISABLED)
@@ -80,8 +80,8 @@ class autoclickerGUI(tk.Tk):
         self.bind("<KeyPress>", self.handle_key_press)
 
     def handle_key_press(self, event):
-        if event.keysym.upper() == "d":
-            self.start_click_key = event.keysym.upper()
+        if event.keysym.lower() == "d":
+            self.start_click_key = event.keysym.lower()
             self.unbind("<KeyPress>")
 
             self.key_label_text.set("Key: " + self.start_click_key)
@@ -99,3 +99,4 @@ class autoclickerGUI(tk.Tk):
 if __name__ == "__main__":
     auto_clicker_GUI = autoclickerGUI()
     auto_clicker_GUI.mainloop()
+

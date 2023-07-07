@@ -4,7 +4,7 @@ def biggestprimenum(temp):
         if temp % i:
             i += 1
         else:
-            temp //= i
+            temp=temp//i
     if temp > 1:
         return temp
     return i

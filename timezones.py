@@ -8,7 +8,7 @@ eastern_tz = pytz.timezone('US/Eastern')
 current_time = datetime.datetime.now()
 
 # Loop through each Eastern state
-eastern_states = ['michigan']
+eastern_states = ['Massachusetts']
 
 for state in eastern_states:
     # Set the time zone for the state

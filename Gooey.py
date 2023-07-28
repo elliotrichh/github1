@@ -1,24 +1,34 @@
 import tkinter as tk
 
-def update_info():
-    name_text = nameentry.get()
-    age_text = ageentry.get()
-    infolabel.config(text=f"Name: {name_text}\nAge: {age_text}")
+def calculate_time():
+    elltime = int(entry.get())
+    stime = (elltime - 5 + 12) % 24
+
+    if stime > 12:
+        resultoutput.config(text="AM")
+    else:
+        resultoutput.config(text="PM")
+
+    stime %= 12
+    if stime == 0:
+        stime = 12
+
+    resultoutput.config(text=f"{stime} USA eastern")
 
 root = tk.Tk()
-root.title("Adjustable Information GUI")
+root.title("Elliot's Timezone Converter")
 
-namelabel = tk.Label(root, text="name:")
-namelabel.pack()
-nameentry = tk.Entry(root)
-nameentry.pack()
+labels = tk.Label(text="Elliot's time")
+labels.pack()
 
-agelabel = tk.Label(root, text="Age:")
-agelabel.pack()
-ageentry= tk.Entry(root)
-ageentry.pack()
+entry = tk.Entry(root)
+entry.pack()
 
-infolabel = tk.Label(root, text="Name: \nAge:")
-infolabel.pack()
+convertbutton = tk.Button(root, text="Convert", command=calculate_time)
+convertbutton.pack()
+
+resultoutput = tk.Label(root)
+resultoutput.pack()
 
 root.mainloop()
+

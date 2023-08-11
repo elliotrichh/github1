@@ -42,5 +42,7 @@ convertbutton.pack()
 resultoutput = tk.Label(root, text="")
 resultoutput.pack()
 
+root.mainloop()
+
 
 

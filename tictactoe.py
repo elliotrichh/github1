@@ -72,6 +72,7 @@ def handleclick(indx, buttons, board):
 
         switchPlayer()
 
+
 # Create the main GUI window
 root = tk.Tk()
 root.title("Tic tac toe gui project")
